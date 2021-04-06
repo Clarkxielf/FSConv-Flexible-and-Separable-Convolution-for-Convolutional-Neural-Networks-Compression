@@ -16,3 +16,7 @@ This repo provides pretrained models and inference code for PyTorch.
 ![](images/RESNET_ON_CIFAR-10.png)
 ![](images/RESNET-50_ON_IMAGENET-2012.png)
 ![](images/MS_COCO.png)
+
+### Visualization
+![](images/input_feature_maps_of_the_second_stage_of_ResNet-20.png)
+![](images/input_feature_maps_at_the_second_stage_of_FSBneck ResNet-20.png)
