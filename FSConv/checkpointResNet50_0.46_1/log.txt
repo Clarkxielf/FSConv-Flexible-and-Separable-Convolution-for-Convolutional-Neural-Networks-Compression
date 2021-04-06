@@ -1,0 +1,519 @@
+save path : ./checkpointResNet50_0.46_1
+Namespace(arch='resnet50', batch_size=256, data='../ILSVRC2012', epochs=90, evaluate=False, lr=0.1, momentum=0.9, pin_memory=True, print_freq=40, resume='', save_dir='./checkpointResNet50_0.46_1', start_epoch=0, weight_decay=0.0001, workers=4)
+=> creating model 'resnet50'
+=> network :
+ ResNet(
+  (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+  (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): ReLU(inplace=True)
+  (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+  (layer1): Sequential(
+    (0): Bottleneck(
+      (conv1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): BasicModule(
+        (shortcut): Sequential()
+        (DW): Sequential(
+          (0): Conv2d(29, 29, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=29, bias=False)
+          (1): BatchNorm2d(29, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (Conv): Sequential(
+          (0): Conv2d(35, 35, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (1): BatchNorm2d(35, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (se): SqueezeExcite(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv_reduce): Conv2d(64, 16, kernel_size=(1, 1), stride=(1, 1))
+          (relu): ReLU(inplace=True)
+          (conv_expand): Conv2d(16, 64, kernel_size=(1, 1), stride=(1, 1))
+        )
+      )
+      (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (downsample): Sequential(
+        (0): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): Bottleneck(
+      (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): BasicModule(
+        (shortcut): Sequential()
+        (DW): Sequential(
+          (0): Conv2d(29, 29, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=29, bias=False)
+          (1): BatchNorm2d(29, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (Conv): Sequential(
+          (0): Conv2d(35, 35, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (1): BatchNorm2d(35, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (se): SqueezeExcite(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv_reduce): Conv2d(64, 16, kernel_size=(1, 1), stride=(1, 1))
+          (relu): ReLU(inplace=True)
+          (conv_expand): Conv2d(16, 64, kernel_size=(1, 1), stride=(1, 1))
+        )
+      )
+      (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (2): Bottleneck(
+      (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): BasicModule(
+        (shortcut): Sequential()
+        (DW): Sequential(
+          (0): Conv2d(29, 29, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=29, bias=False)
+          (1): BatchNorm2d(29, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (Conv): Sequential(
+          (0): Conv2d(35, 35, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (1): BatchNorm2d(35, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (se): SqueezeExcite(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv_reduce): Conv2d(64, 16, kernel_size=(1, 1), stride=(1, 1))
+          (relu): ReLU(inplace=True)
+          (conv_expand): Conv2d(16, 64, kernel_size=(1, 1), stride=(1, 1))
+        )
+      )
+      (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+  )
+  (layer2): Sequential(
+    (0): Bottleneck(
+      (conv1): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): BasicModule(
+        (shortcut): Sequential(
+          (0): Conv2d(128, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (DW): Sequential(
+          (0): Conv2d(58, 58, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=58, bias=False)
+          (1): BatchNorm2d(58, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (Conv): Sequential(
+          (0): Conv2d(70, 70, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (1): BatchNorm2d(70, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (se): SqueezeExcite(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv_reduce): Conv2d(128, 32, kernel_size=(1, 1), stride=(1, 1))
+          (relu): ReLU(inplace=True)
+          (conv_expand): Conv2d(32, 128, kernel_size=(1, 1), stride=(1, 1))
+        )
+      )
+      (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (downsample): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): Bottleneck(
+      (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): BasicModule(
+        (shortcut): Sequential()
+        (DW): Sequential(
+          (0): Conv2d(58, 58, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=58, bias=False)
+          (1): BatchNorm2d(58, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (Conv): Sequential(
+          (0): Conv2d(70, 70, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (1): BatchNorm2d(70, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (se): SqueezeExcite(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv_reduce): Conv2d(128, 32, kernel_size=(1, 1), stride=(1, 1))
+          (relu): ReLU(inplace=True)
+          (conv_expand): Conv2d(32, 128, kernel_size=(1, 1), stride=(1, 1))
+        )
+      )
+      (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (2): Bottleneck(
+      (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): BasicModule(
+        (shortcut): Sequential()
+        (DW): Sequential(
+          (0): Conv2d(58, 58, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=58, bias=False)
+          (1): BatchNorm2d(58, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (Conv): Sequential(
+          (0): Conv2d(70, 70, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (1): BatchNorm2d(70, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (se): SqueezeExcite(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv_reduce): Conv2d(128, 32, kernel_size=(1, 1), stride=(1, 1))
+          (relu): ReLU(inplace=True)
+          (conv_expand): Conv2d(32, 128, kernel_size=(1, 1), stride=(1, 1))
+        )
+      )
+      (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (3): Bottleneck(
+      (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): BasicModule(
+        (shortcut): Sequential()
+        (DW): Sequential(
+          (0): Conv2d(58, 58, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=58, bias=False)
+          (1): BatchNorm2d(58, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (Conv): Sequential(
+          (0): Conv2d(70, 70, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (1): BatchNorm2d(70, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (se): SqueezeExcite(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv_reduce): Conv2d(128, 32, kernel_size=(1, 1), stride=(1, 1))
+          (relu): ReLU(inplace=True)
+          (conv_expand): Conv2d(32, 128, kernel_size=(1, 1), stride=(1, 1))
+        )
+      )
+      (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+  )
+  (layer3): Sequential(
+    (0): Bottleneck(
+      (conv1): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): BasicModule(
+        (shortcut): Sequential(
+          (0): Conv2d(256, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (DW): Sequential(
+          (0): Conv2d(117, 117, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=117, bias=False)
+          (1): BatchNorm2d(117, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (Conv): Sequential(
+          (0): Conv2d(139, 139, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (1): BatchNorm2d(139, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (se): SqueezeExcite(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv_reduce): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1))
+          (relu): ReLU(inplace=True)
+          (conv_expand): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1))
+        )
+      )
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (downsample): Sequential(
+        (0): Conv2d(512, 1024, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): BasicModule(
+        (shortcut): Sequential()
+        (DW): Sequential(
+          (0): Conv2d(117, 117, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=117, bias=False)
+          (1): BatchNorm2d(117, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (Conv): Sequential(
+          (0): Conv2d(139, 139, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (1): BatchNorm2d(139, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (se): SqueezeExcite(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv_reduce): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1))
+          (relu): ReLU(inplace=True)
+          (conv_expand): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1))
+        )
+      )
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (2): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): BasicModule(
+        (shortcut): Sequential()
+        (DW): Sequential(
+          (0): Conv2d(117, 117, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=117, bias=False)
+          (1): BatchNorm2d(117, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (Conv): Sequential(
+          (0): Conv2d(139, 139, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (1): BatchNorm2d(139, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (se): SqueezeExcite(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv_reduce): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1))
+          (relu): ReLU(inplace=True)
+          (conv_expand): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1))
+        )
+      )
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (3): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): BasicModule(
+        (shortcut): Sequential()
+        (DW): Sequential(
+          (0): Conv2d(117, 117, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=117, bias=False)
+          (1): BatchNorm2d(117, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (Conv): Sequential(
+          (0): Conv2d(139, 139, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (1): BatchNorm2d(139, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (se): SqueezeExcite(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv_reduce): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1))
+          (relu): ReLU(inplace=True)
+          (conv_expand): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1))
+        )
+      )
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (4): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): BasicModule(
+        (shortcut): Sequential()
+        (DW): Sequential(
+          (0): Conv2d(117, 117, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=117, bias=False)
+          (1): BatchNorm2d(117, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (Conv): Sequential(
+          (0): Conv2d(139, 139, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (1): BatchNorm2d(139, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (se): SqueezeExcite(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv_reduce): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1))
+          (relu): ReLU(inplace=True)
+          (conv_expand): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1))
+        )
+      )
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (5): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): BasicModule(
+        (shortcut): Sequential()
+        (DW): Sequential(
+          (0): Conv2d(117, 117, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=117, bias=False)
+          (1): BatchNorm2d(117, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (Conv): Sequential(
+          (0): Conv2d(139, 139, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (1): BatchNorm2d(139, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (se): SqueezeExcite(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv_reduce): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1))
+          (relu): ReLU(inplace=True)
+          (conv_expand): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1))
+        )
+      )
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+  )
+  (layer4): Sequential(
+    (0): Bottleneck(
+      (conv1): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): BasicModule(
+        (shortcut): Sequential(
+          (0): Conv2d(512, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (DW): Sequential(
+          (0): Conv2d(235, 235, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=235, bias=False)
+          (1): BatchNorm2d(235, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (Conv): Sequential(
+          (0): Conv2d(277, 277, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (1): BatchNorm2d(277, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (se): SqueezeExcite(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv_reduce): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1))
+          (relu): ReLU(inplace=True)
+          (conv_expand): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1))
+        )
+      )
+      (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (downsample): Sequential(
+        (0): Conv2d(1024, 2048, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): Bottleneck(
+      (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): BasicModule(
+        (shortcut): Sequential()
+        (DW): Sequential(
+          (0): Conv2d(235, 235, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=235, bias=False)
+          (1): BatchNorm2d(235, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (Conv): Sequential(
+          (0): Conv2d(277, 277, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (1): BatchNorm2d(277, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (se): SqueezeExcite(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv_reduce): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1))
+          (relu): ReLU(inplace=True)
+          (conv_expand): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1))
+        )
+      )
+      (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (2): Bottleneck(
+      (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): BasicModule(
+        (shortcut): Sequential()
+        (DW): Sequential(
+          (0): Conv2d(235, 235, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=235, bias=False)
+          (1): BatchNorm2d(235, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (Conv): Sequential(
+          (0): Conv2d(277, 277, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (1): BatchNorm2d(277, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (se): SqueezeExcite(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv_reduce): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1))
+          (relu): ReLU(inplace=True)
+          (conv_expand): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1))
+        )
+      )
+      (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+  )
+  (avgpool): AvgPool2d(kernel_size=7, stride=1, padding=0)
+  (fc): Linear(in_features=2048, out_features=1000, bias=True)
+)
+ * Prec@1 18.936 Prec@5 40.564
+ * Prec@1 33.244 Prec@5 59.402
+ * Prec@1 39.490 Prec@5 66.072
+ * Prec@1 40.464 Prec@5 66.834
+ * Prec@1 45.188 Prec@5 71.568
+ * Prec@1 46.600 Prec@5 72.678
+ * Prec@1 50.000 Prec@5 76.106
+ * Prec@1 50.050 Prec@5 75.810
+ * Prec@1 50.384 Prec@5 76.542
+ * Prec@1 50.598 Prec@5 76.458
+ * Prec@1 49.934 Prec@5 75.800
+ * Prec@1 53.574 Prec@5 78.600
+ * Prec@1 52.940 Prec@5 78.136
+ * Prec@1 50.120 Prec@5 75.820
+ * Prec@1 54.740 Prec@5 79.698
+ * Prec@1 53.944 Prec@5 79.186
+ * Prec@1 54.458 Prec@5 79.768
+ * Prec@1 54.154 Prec@5 79.132
+ * Prec@1 51.700 Prec@5 77.670
+ * Prec@1 54.492 Prec@5 79.938
+ * Prec@1 54.918 Prec@5 80.038
+ * Prec@1 50.272 Prec@5 76.274
+ * Prec@1 55.116 Prec@5 80.288
+ * Prec@1 55.392 Prec@5 80.850
+ * Prec@1 52.612 Prec@5 78.228
+ * Prec@1 54.744 Prec@5 80.056
+ * Prec@1 54.086 Prec@5 79.742
+ * Prec@1 55.374 Prec@5 80.704
+ * Prec@1 55.422 Prec@5 80.312
+ * Prec@1 50.290 Prec@5 76.138
+ * Prec@1 68.926 Prec@5 89.266
+ * Prec@1 69.846 Prec@5 89.740
+ * Prec@1 70.520 Prec@5 90.084
+ * Prec@1 70.670 Prec@5 90.114
+ * Prec@1 71.012 Prec@5 90.440
+ * Prec@1 71.056 Prec@5 90.436
+ * Prec@1 71.032 Prec@5 90.438
+ * Prec@1 70.980 Prec@5 90.326
+ * Prec@1 70.850 Prec@5 90.308
+ * Prec@1 70.250 Prec@5 90.214
+ * Prec@1 70.542 Prec@5 89.954
+ * Prec@1 70.304 Prec@5 90.042
+ * Prec@1 69.356 Prec@5 89.648
+ * Prec@1 70.458 Prec@5 90.054
+ * Prec@1 70.712 Prec@5 90.446
+ * Prec@1 70.164 Prec@5 90.024
+ * Prec@1 70.612 Prec@5 90.300
+ * Prec@1 70.082 Prec@5 90.038
+ * Prec@1 70.812 Prec@5 90.418
+ * Prec@1 68.892 Prec@5 89.198
+ * Prec@1 70.762 Prec@5 90.184
+ * Prec@1 70.610 Prec@5 90.124
+ * Prec@1 70.438 Prec@5 90.318
+ * Prec@1 69.594 Prec@5 89.576
+ * Prec@1 70.668 Prec@5 90.246
+ * Prec@1 69.060 Prec@5 89.348
+ * Prec@1 70.748 Prec@5 90.342
+ * Prec@1 70.440 Prec@5 89.950
+ * Prec@1 70.950 Prec@5 90.526
+ * Prec@1 70.736 Prec@5 90.250
+ * Prec@1 74.744 Prec@5 92.518
+ * Prec@1 75.184 Prec@5 92.562
+ * Prec@1 75.338 Prec@5 92.646
+ * Prec@1 75.632 Prec@5 92.714
+ * Prec@1 75.640 Prec@5 92.696
+ * Prec@1 75.772 Prec@5 92.886
+ * Prec@1 75.746 Prec@5 92.822
+ * Prec@1 75.728 Prec@5 92.766
+ * Prec@1 75.820 Prec@5 92.926
+ * Prec@1 75.830 Prec@5 92.872
+ * Prec@1 75.986 Prec@5 92.898
+ * Prec@1 75.934 Prec@5 92.898
+ * Prec@1 75.984 Prec@5 92.886
+ * Prec@1 75.982 Prec@5 92.886
+ * Prec@1 75.948 Prec@5 92.920
+ * Prec@1 76.018 Prec@5 92.980
+ * Prec@1 76.144 Prec@5 92.864
+ * Prec@1 76.016 Prec@5 92.890
+ * Prec@1 76.098 Prec@5 93.006
+ * Prec@1 76.114 Prec@5 92.900
+ * Prec@1 76.122 Prec@5 92.942
+ * Prec@1 76.184 Prec@5 92.928
+ * Prec@1 76.128 Prec@5 92.914
+ * Prec@1 76.136 Prec@5 92.986
+ * Prec@1 76.224 Prec@5 92.980
+ * Prec@1 75.870 Prec@5 92.858
+ * Prec@1 75.842 Prec@5 92.806
+ * Prec@1 76.116 Prec@5 92.994
+ * Prec@1 76.244 Prec@5 92.840
+ * Prec@1 76.092 Prec@5 92.952
